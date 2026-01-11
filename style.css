@@ -1993,6 +1993,33 @@ textarea.form-control {
 }
 
 @media (max-width: 767px) {
+  * {  }
+  * {  }
+  * {  }
+  * {  }
+}
+
+/* AUTO-INJECTED: bg-dark child text fix */
+.bg-dark > * {
+  color:white!important;
+}
+
+    body {
+          overflow-y: hidden;
+    }
+/* --- AUTO-INJECTED: AOS mobile/tablet override --- */
+@media (max-width: 1024px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+  .c-logo__img {
+    display: none!important;
+  }
+}
+
+@media (max-width: 767px) {
   * { gap: var(--space-lg); }
   * { gap: var(--space-xs); }
   * { gap: var(--space-sm); }
