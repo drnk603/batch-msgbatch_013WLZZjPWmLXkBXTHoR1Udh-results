@@ -301,7 +301,7 @@ address {
 .l-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-lg);
+  
 }
 
 @media (min-width: 768px) {
@@ -443,7 +443,7 @@ address {
 .navbar-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  
   list-style: none;
   padding: 0;
   margin: 0;
@@ -453,7 +453,7 @@ address {
   .navbar-nav {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-sm);
+    
   }
 }
 
@@ -763,7 +763,7 @@ address {
 .c-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  
   margin-top: var(--space-lg);
 }
 
@@ -807,7 +807,7 @@ address {
 
 .c-slider__track {
   display: flex;
-  gap: var(--space-lg);
+  
   transition: transform var(--transition-slow);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -971,7 +971,7 @@ address {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-md);
+  
 }
 
 .c-job-card__title {
@@ -1054,7 +1054,7 @@ address {
 
 .c-contact-info__item {
   display: flex;
-  gap: var(--space-md);
+  
   margin-bottom: var(--space-lg);
   align-items: flex-start;
 }
@@ -1170,7 +1170,7 @@ textarea.form-control {
 .form-check {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-sm);
+  
   margin-bottom: var(--space-md);
 }
 
@@ -1235,7 +1235,7 @@ textarea.form-control {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: var(--space-sm);
+  
   align-items: center;
 }
 
@@ -1989,5 +1989,32 @@ textarea.form-control {
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: light;
+  }
+}
+
+@media (max-width: 767px) {
+  * { gap: var(--space-lg); }
+  * { gap: var(--space-xs); }
+  * { gap: var(--space-sm); }
+  * { gap: var(--space-md); }
+}
+
+/* AUTO-INJECTED: bg-dark child text fix */
+.bg-dark > * {
+  color:white!important;
+}
+
+    body {
+          overflow-y: hidden;
+    }
+/* --- AUTO-INJECTED: AOS mobile/tablet override --- */
+@media (max-width: 1024px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+  .c-logo__img {
+    display: none!important;
   }
 }

@@ -106,15 +106,15 @@
       this.forms = document.querySelectorAll(formSelector);
       this.validationRules = {
         name: {
-          pattern: /^[a-zA-ZÀ-ÿs-']{2,50}$/,
+          pattern: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/,
           message: 'Naam moet 2-50 tekens bevatten (alleen letters)'
         },
         email: {
-          pattern: /^[^s@]+@[^s@]+.[^s@]+$/,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
           message: 'Voer een geldig e-mailadres in'
         },
         phone: {
-          pattern: /^[ds+-()]{10,20}$/,
+          pattern: /^[\d\s+\-()]{10,20}$/,
           message: 'Voer een geldig telefoonnummer in (10-20 cijfers)'
         },
         message: {
@@ -504,8 +504,8 @@
         const linkPath = link.getAttribute('href');
         if (!linkPath) return;
 
-        const normalizedLinkPath = linkPath.replace(//index.html$/, '/');
-        const normalizedCurrentPath = this.currentPath.replace(//index.html$/, '/') || '/';
+        const normalizedLinkPath = linkPath.replace(/\/index\.html$/, '/');
+        const normalizedCurrentPath = (this.currentPath.replace(/\/index\.html$/, '/') || '/');
 
         if (normalizedLinkPath === normalizedCurrentPath ||
             (normalizedCurrentPath === '/' && (linkPath === '/' || linkPath === '/index.html'))) {
@@ -540,98 +540,3 @@
   }
 
 })();
-# CSS Additions (add to style.css)
-
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);
-  transform: scale(0);
-  animation: ripple-animation 0.6s ease-out;
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.c-nav.is-open .navbar-collapse {
-  max-height: calc(100vh - var(--header-h));
-  height: calc(100vh - var(--header-h));
-}
-
-.aos-animate {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.c-btn, .c-button, .btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.c-card:hover, .card:hover {
-  transform: translateY(-4px) scale(1.01);
-}
-
-img {
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-}
-
-.l-header {
-  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.l-header.is-scrolled {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-secondary);
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
-
-.nav-link.active::after,
-.nav-link:hover::after {
-  width: 80%;
-  left: 10%;
-}
-
-.c-slider__track {
-  scroll-behavior: smooth;
-}
-
-.c-slider__item {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-@media (max-width: 1023px) {
-  .navbar-collapse.show {
-    animation: slideDown 0.3s ease-out;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: calc(100vh - var(--header-h));
-  }
-}
